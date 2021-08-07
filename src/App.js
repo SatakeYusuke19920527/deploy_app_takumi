@@ -2,6 +2,7 @@ import './App.css';
 
 const handleClick = () => {
   console.log("Hello world")
+  alert("Hello would")
 }
 
 function App() {
