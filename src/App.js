@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 function App() {
   const [count, setCount] = useState(0)
   const [text, setText] = useState('')
+  const [text1, setText1] = useState('')
+  const [error, setError] = useState('')
+  
 
   const handleClick = () => {
     //レベル1
@@ -30,10 +33,14 @@ function App() {
   }
 
   const hyouji = () => {
-    return (
-      <div><h1>{text}</h1></div>
-    )
-  
+    console.log(text)
+    console.log(error)
+    if (text === "") {
+      setError('何か文字を入力してください')
+    } else {
+      setText1(text)
+      setError('')
+    }
   }
   
   
@@ -44,6 +51,7 @@ function App() {
       <p>{count}</p>
         <input type="text" value={text} onChange={handleChange} />
         <button onClick={hyouji}>Hello</button>
+        <h1>{text1}{error}</h1>
         
     </div >
   );
