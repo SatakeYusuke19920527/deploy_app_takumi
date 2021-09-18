@@ -1,7 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Table } from 'react-bootstrap';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -118,8 +119,22 @@ function App() {
         <p>cpuの手：{cpu}</p>
         <p>勝敗：{kekka}</p>
         <ul>
-          {items.map(item => <li key={item}> {item.title} </li>)}
+          {items.map(item => <li key={item}> {item.url} </li>)}
         </ul>
+        <Table striped bordered hover size="sm">
+          <thead>
+            <tr>
+              <th>title</th>
+              <th>url</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {items.map(item => <th key={item}> {item.title} </th>)}
+              {items.map(item => <th key={item}> {item.url} </th>)}
+            </tr>
+          </tbody>
+        </Table>
     </div >
   );
 }
