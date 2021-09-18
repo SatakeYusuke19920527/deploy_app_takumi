@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const [jibun, setJibun] = useState('')
   const [cpu, setCpu] = useState('')
   const [kekka, setKekka] = useState('')
+  const [items, setItems] = useState([])
   
 
   const handleClick = () => {
@@ -94,12 +96,13 @@ function App() {
       setCpu('ぱー')
     }
   }
-  const axios = () => {
+  useEffect(() =>{
     axios.get('https://qiita.com/api/v2/items')
       .then(res => {
-        setPosts(res.data)
+        setItems(res.data)
+        console.log(items)
     })
-  }, []
+  }, [])
 
   
   
@@ -114,6 +117,9 @@ function App() {
         <p>あなたの手：{jibun}</p>
         <p>cpuの手：{cpu}</p>
         <p>勝敗：{kekka}</p>
+        <ul>
+          {items.map(item => <li key={item}> {item.title} </li>)}
+        </ul>
     </div >
   );
 }
