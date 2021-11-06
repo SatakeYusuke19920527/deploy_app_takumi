@@ -3,7 +3,7 @@ import { useDrag } from 'react-dnd'
 
 
 
-  const PetCard = ({ id, name }) => {
+  /*const PetCard = ({ id, name }) => {
     const [{ isDragging }, dragRef] = useDrag({
         type: 'pet',
         item: { id, name },
@@ -19,4 +19,4 @@ import { useDrag } from 'react-dnd'
     )
 }
 
-export default PetCard
+export default PetCard*/

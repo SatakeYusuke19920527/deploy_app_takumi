@@ -15,6 +15,7 @@ const PageA = () => {
   const [cpu, setCpu] = useState('')
   const [kekka, setKekka] = useState('')
   const [items, setItems] = useState([])
+  const [items1, setItems1] = useState([])
   
 
   const handleClick = () => {
@@ -98,6 +99,10 @@ const PageA = () => {
       setCpu('ぱー')
     }
   }
+
+  const id = { id : (29129241 <= 29129326) }
+  
+
   useEffect(() =>{
     axios.get('https://qiita.com/api/v2/items')
       .then(res => {
@@ -105,6 +110,16 @@ const PageA = () => {
         console.log(items)
     })
   }, [])
+  /*useEffect(() => {
+    axios
+      .all
+      .then(res => {
+        setItems1(res.data)
+        console.log(items1)
+      })
+      
+    
+  }, [])*/
 
   
   
@@ -112,6 +127,7 @@ const PageA = () => {
     <div>
         <p><button onClick={handleClick}>hello world</button></p>
         <Link to="/pageb/helloworld">ページBに移動/pageb/'helloworld'を書き換えれば２行目の文が変わります</Link>
+        <p><Link to="/pagec/hi">カード</Link></p>
       <p><button onClick={Increment}>いいね！</button><button onClick={Decrement}>よくないね！</button><button onClick={Reset}>reset</button></p>
       <p>{count}</p>
       <p><input type="text" value={text} onChange={handleChange} /><button onClick={hyouji}>Hello</button><p>{text1}</p></p>
@@ -122,6 +138,9 @@ const PageA = () => {
         <p>勝敗：{kekka}</p>
         <ul>
           {items.map(item => <li key={item}> {item.url} </li>)}
+        </ul>
+        <ul>
+          {items1.map(item => <li key={item}> {item} </li>)}
         </ul>
         <Table striped bordered hover size="sm">
           <thead>
