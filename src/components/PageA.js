@@ -128,6 +128,7 @@ const PageA = () => {
         <p><button onClick={handleClick}>hello world</button></p>
         <Link to="/pageb/helloworld">ページBに移動/pageb/'helloworld'を書き換えれば２行目の文が変わります</Link>
         <p><Link to="/pagec/hi">カード</Link></p>
+        <div><p><Link to="/uranai/hi">サイコパス診断アプリ</Link></p></div>
       <p><button onClick={Increment}>いいね！</button><button onClick={Decrement}>よくないね！</button><button onClick={Reset}>reset</button></p>
       <p>{count}</p>
       <p><input type="text" value={text} onChange={handleChange} /><button onClick={hyouji}>Hello</button><p>{text1}</p></p>
