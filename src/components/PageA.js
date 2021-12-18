@@ -1,12 +1,17 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,  } from 'react';
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+import ReactDOM from 'react-dom'
+
+
+
 
 const PageA = () => {
   const [count, setCount] = useState(0)
+  const [count1, setCount1] = useState(0)
   const [countcpu, setCountcpu] = useState(0)
   const [text, setText] = useState('')
   const [text1, setText1] = useState('')
@@ -15,8 +20,13 @@ const PageA = () => {
   const [cpu, setCpu] = useState('')
   const [kekka, setKekka] = useState('')
   const [items, setItems] = useState([])
-  const [items1, setItems1] = useState([])
+  const [items1, setItems1] = useState(0)
   
+  const element = <kaitou items={items1} />;
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+)
 
   const handleClick = () => {
     //レベル1
@@ -108,6 +118,7 @@ const PageA = () => {
       .then(res => {
         setItems(res.data)
         console.log(items)
+        setItems1(items1)
     })
   }, [])
   /*useEffect(() => {
@@ -140,9 +151,7 @@ const PageA = () => {
         <ul>
           {items.map(item => <li key={item}> {item.url} </li>)}
         </ul>
-        <ul>
-          {items1.map(item => <li key={item}> {item} </li>)}
-        </ul>
+        
         <Table striped bordered hover size="sm">
           <thead>
             <tr>
@@ -155,6 +164,7 @@ const PageA = () => {
           </tbody>
         </Table>
         
+      
     </div >
   );
 }
