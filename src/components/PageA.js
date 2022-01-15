@@ -7,11 +7,9 @@ import { Link } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 
 
-
-
 const PageA = () => {
   const [count, setCount] = useState(0)
-  const [count1, setCount1] = useState(0)
+  
   const [countcpu, setCountcpu] = useState(0)
   const [text, setText] = useState('')
   const [text1, setText1] = useState('')
@@ -20,13 +18,17 @@ const PageA = () => {
   const [cpu, setCpu] = useState('')
   const [kekka, setKekka] = useState('')
   const [items, setItems] = useState([])
-  const [items1, setItems1] = useState(0)
+  const [items1, ] = useState(0)
   
   const element = <kaitou items={items1} />;
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-)
+
+  useEffect(() =>{
+    axios.get('https://qiita.com/api/v2/items')
+      .then(res => {
+        setItems(res.data)
+        
+    })
+  }, [])
 
   const handleClick = () => {
     //レベル1
@@ -109,18 +111,6 @@ ReactDOM.render(
       setCpu('ぱー')
     }
   }
-
-  const id = { id : (29129241 <= 29129326) }
-  
-
-  useEffect(() =>{
-    axios.get('https://qiita.com/api/v2/items')
-      .then(res => {
-        setItems(res.data)
-        console.log(items)
-        setItems1(items1)
-    })
-  }, [])
   /*useEffect(() => {
     axios
       .all

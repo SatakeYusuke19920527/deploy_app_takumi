@@ -13,11 +13,8 @@ import Page404 from './components/Page404.js';
 function App() {
 
   return (
-
     <BrowserRouter>
-
       <Switch>
-
         <Route exact path="/" component={PageA} />
         <Route exact path="/pageb/:word" component={PageB} />
         <Route exact path="/pagec/:word" component={PageC} />
@@ -25,14 +22,10 @@ function App() {
         <Route exact path='/mondai1/:word' component={Mondai1} />
         <Route exact path='/mondai2/:word' component={Mondai2} />
         <Route exact path='/mondai3/:word' component={Mondai3} />
-        <Route exact path='/mondai4/:word' component={Mondai4}/>
-        <Route component={Page404} />
-        
-
+        <Route exact path='/mondai4/:word' component={Mondai4}/> 
+         <Route component={Page404} />
       </Switch>
-
     </BrowserRouter>
-
   );
 
 }
