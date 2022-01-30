@@ -1,8 +1,15 @@
 import { Link } from 'react-router-dom'
-
+import {addAnswer, selectAnswer} from '../../features/answerSlice'
+import {useAppDispatch, useAppSelector} from '../../hooks/useRTK'
 
 const Mondai2 = () => {
+  const dispatch = useAppDispatch()
+const ans = useAppSelector(selectAnswer)
+console.log(ans, '=============')
 
+const kaitou = () => {
+  dispatch(addAnswer('kaitou2'))
+}
  
 return (
     <div>
@@ -11,7 +18,7 @@ return (
       <ol>
         <li style={{marginTop: 20 }}><Link to="/mondai3/:word">黒が好きだから</Link></li>
         <li><Link to="/mondai3/:word">部屋の中を見えなくするため</Link></li>
-        <li><Link to="/mondai3/:word">血痕を消す為</Link></li>
+        <li><Link to="/mondai3/:word" onClick={kaitou}>血痕を消す為</Link></li>
       </ol>
     </div>
   )

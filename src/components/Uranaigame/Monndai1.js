@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom'
-
+import {addAnswer, selectAnswer} from '../../features/answerSlice'
+import {useAppDispatch, useAppSelector} from '../../hooks/useRTK'
 
 
 const Mondai1 = () => {
+  const dispatch = useAppDispatch()
 
-
-  const kaitou = (props) => {
-    console.log(props.items)
-    return (props.items + 1)
-    
+  const kaitou = () => {
+    dispatch(addAnswer('kaitou1'))
   }
     
   return (
